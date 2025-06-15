@@ -11,6 +11,9 @@
     <!-- Importação do framework Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Importação da fonte Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Configuração de viewport para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -19,268 +22,494 @@
     
     <!-- Estilos CSS personalizados -->
     <style>
-        /* Estilo Geral da Página*/
-        h1 {
-            color: #f7f7f7;
-            font-family: 'Roboto', sans-serif;
-            font-size: 3em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 30px;
+        /* Estilo Geral da Página */
+        :root {
+            --primary-color: #1a4b8c;
+            --secondary-color: #0a2fb3;
+            --accent-color: #30b31c;
+            --text-color: #f7f7f7;
+            --bg-gradient: linear-gradient(135deg, #1a4b8c 0%, #0a2fb3 50%, #003366 100%);
         }
-        h2 {
-            color: #ffffff;
-            font-family: 'Times', sans-serif;
-            font-size: 3em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: left;
-            margin-bottom: 30px;
-        }
-        h3{
-            color: #f7f7f7;
-            font-family: 'Arial', sans-serif;
-            font-size: 2em;
-           
-            letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h5{
-            color: #f7f7f7;
-            font-family: 'Times', sans-serif;
-            font-size: 1em;
-            letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        /* Estilo da Main*/
-
         
-        /* Estilo geral do corpo da página */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #0C3 0%, #006837 25%, #005C29 50%, #003366 75%, #001A33 100%);
-            color: #333;
-            line-height: 1.7;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-
+        
+        /* Tipografia Moderna */
+        h1 {
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        h5 {
+            color: var(--text-color);
+            font-weight: 400;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
         /* Estilo do cabeçalho */
         header {
-            background: radial-gradient(circle, #077dec 0%, #061f59 25%, #051264 50%, #003366 75%, #001A33 100%);
-            padding: 2rem 1rem;
+            background: var(--bg-gradient);
+            padding: 2rem 1rem 3rem;
             text-align: center;
-            border-bottom: 3px solid #0ff707;
-            color: #ffffff;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilo do rodapé */
-        footer {
-            background: linear-gradient(45deg, #077dec 0%, #061f59 25%, #051264 50%, #003366 75%, #001A33 100%);
-            color: black;
-            text-align: center;
-            padding: 1rem;
-            margin-top: auto;
+            position: relative;
+            overflow: hidden;
         }
         
-        /*Container para o Texto*/
-        .container-texto {
-            max-width: 800px;
-            max-height: 300px;
-            overflow: scroll;
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #8cb009;
-            border-radius: 10px;
-            background: linear-gradient(45deg, #077dec 0%, #061f59 25%, #051264 50%, #003366 75%, #001A33 100%);
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .header-logos img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.5;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        /* Container Principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+        
+        .content-section {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
         }
 
-        /*Container para Imagem*/
-
-         .container-imagem {
-                max-width: 400px;
-                margin: 20px auto;
-                text-align: center;
-                vertical-align: top;
-                font-family: Arial, sans-serif;
+        /* Sidebar de botões */
+        .sidebar {
+            padding-right: 2rem;
         }
-
-        .container-imagem img {
-                width: 100%;
-                height: auto;
-                border-radius: 8px;
-        }
-
-        .legenda {
-            margin-top: 8px;
-            font-size: 14px;
-            color: #fbfbfb;
-        }
-
-        /*Estilo de botões*/
-        .btn-mt {
-            border: 2px solid #30b31c;
-            font-weight: bold;
-            margin: 0.5rem;
+        
+        .btn-sidebar {
+            width: 100%;
+            margin-bottom: 1rem;
+            text-align: left;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
-        .btn-mt:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(6, 64, 199, 0.2);
-        }
         
-        /* Container para os botões no header */
-        .header-buttons {
-            margin-top: 1.5rem;
-            padding: 1rem;
-        }
-        /*Modelo para Tabelas do */
-        table {
+        /* Tabela moderna */
+        .modern-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-
-            font-family: Arial, sans-serif;
-            color: rgb(251, 255, 9);
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
-
-         /* Cabeçalho com cor destacada */
-         thead th {
-        background-color: #05916e;
-        color: white;
-        padding: 12px;
-        text-align: left;
+        
+        .modern-table th {
+            background-color: rgba(48, 179, 28, 0.3);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
-
-        /* Linhas do corpo */
-        tbody td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #ecf0f15b;
+        
+        .modern-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
         }
-
-        /* Efeito hover simples */
-        tbody tr:hover {
-        background-color: #f8f9fa74;
+        
+        .modern-table tr:last-child td {
+            border-bottom: none;
         }
-
-    
-        /*Cards*/
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background: linear-gradient(135deg, #023146 0%, #011128 50%, #08d445 100%);
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
-    color: white;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.card h5 {
-    margin: 10px 0 5px;
-    font-size: 1.2rem;
-}
-
-.card p {
-    font-size: 0.9rem;
-    margin: 0;
-    opacity: 0.8;
-}
-/*Fonte da Página*/
-.texto-branco{
-    color: whitesmoke;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    text-align: justify;    
-    text-justify: inter-word
-
-}
-
-.texto-branco, .link-rodape {
-  color: white;
-  display: block;       
-  text-align: justify;    
-  text-justify: inter-word;
-  margin: 5px 0;        
-}
-
-.link-rodape {
-  text-decoration: none; 
-  font-weight: bold;     
-}
-</style>
+        
+        .modern-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .table-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .table-link:hover {
+            color: #fff;
+            transform: translateX(3px);
+        }
+        
+        .table-link i {
+            font-size: 0.8em;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Texto e Links */
+        .texto-branco {
+            color: var(--text-color);
+            text-align: justify;
+            text-justify: inter-word;
+            font-weight: 300;
+        }
+        
+        .link-rodape {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .link-rodape:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+        
+        /* Rodapé */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logos img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .external-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .external-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .external-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .header-logos, .footer-logos {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-logos img, .footer-logos img {
+                height: 60px;
+            }
+            
+            .sidebar {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Cabeçalho da página com botões -->
     <header>
-        <h1>Tutoria de Acolhimento</h1>
-        <p class="lead">Bem-Vindo ao Curso de Estatística </p>
+        <div class="header-logos">
+            <img src="logo_ufmt.png" alt="Logo UFMT" style="filter: brightness(0) invert(1)">
+            <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
+        </div>
         
-        <!-- Botões no header -->
-       
+        <div class="container">
+            <h1>Tutoria de Acolhimento</h1>
+            <p class="lead">Bem-Vindo ao Curso de Estatística</p>
+        </div>
     </header>
 
     <!-- Conteúdo principal -->
-    <main>
-       <div style="max-width: 800px;
-        margin: 40px auto;
-        padding: 20px;
-
-        border-radius: 10px;
-     
-        font-family: Arial, 
-        sans-serif; 
-        line-height: 1.6;">
-    <h2>Programa de Tutoria da UFMT</h2>
-        <p class="texto-branco">O Programa de Tutoria da Universidade Federal de Mato Grosso (UFMT) é uma iniciativa institucional voltada à
-             redução da retenção e evasão nos cursos de graduação, por meio do fortalecimento dos conhecimentos essenciais da Educação Básica. ,
-             Seu objetivo é garantir que os estudantes dominem as bases necessárias para a compreensão das disciplinas do ensino superior, 
-             promovendo assim melhor desempenho acadêmico e conclusão oportuna dos cursos.
-        </p>
-        <p class="texto-branco" >Mais informações sobre o Programa de Tutoria da - UFMT </p>
-        <a href="https://www.ufmt.br/pro-reitoria/proeg/pagina/tutoria/505" target="_blank" class="link-rodape">PROEG - UFMT</a>
-    <h3>A Tutoria de Acolhimento</h3>
-  </div>
-
-
-
-
-
-
-</main>
+    <main class="main-container">
+        <div class="row">
+            <!-- Sidebar com botões -->
+            <div class="col-lg-3 sidebar">
+                <div class="content-section">
+                    <h3>Navegue e não fique perdido</h3>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success btn-sidebar">
+                            <i class="fas fa-home me-2"></i>Início
+                        </button>
+                        <button class="btn btn-outline-light btn-sidebar">
+                            <i class="fas fa-home me-2"></i>informações Importantes
+                        </button>
+                        <button class="btn btn-outline-light btn-sidebar">
+                            <i class="fas fa-book me-2"></i>Material Auxiliar
+                        </button>
+                        <button class="btn btn-outline-light btn-sidebar">
+                            <i class="fas fa-envelope me-2"></i>Contato
+                        </button>
+                        <button class="btn btn-outline-light btn-sidebar">
+                            <i class="fas fa-question-circle me-2"></i>Ajuda
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo principal -->
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <section class="content-section">
+                            <h2>Programa de Tutoria da UFMT</h2>
+                            <p class="texto-branco">O Programa de Tutoria da Universidade Federal de Mato Grosso (UFMT) é uma iniciativa institucional voltada à redução da retenção e evasão nos cursos de graduação, por meio do fortalecimento dos conhecimentos essenciais da Educação Básica.</p>
+                            <p class="texto-branco">Seu objetivo é garantir que os estudantes dominem as bases necessárias para a compreensão das disciplinas do ensino superior, promovendo assim melhor desempenho acadêmico e conclusão oportuna dos cursos.</p>
+                            <a href="https://www.ufmt.br/pro-reitoria/proeg/pagina/tutoria/505" target="_blank" class="link-rodape">PROEG - UFMT</a>
+                        </section>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <section class="content-section">
+                            <h3>A Tutoria de Acolhimento</h3>
+                            <p class="texto-branco">Trata-se de outra iniciativa institucional da UFMT, que complementa o Programa de Tutoria,
+                                 com foco específico no acolhimento dos estudantes ingressantes. No contexto do curso de Estatística,
+                                  esta ação visa orientar os calouros sobre aspectos essenciais da vida universitária, proporcionando:</p>
+                            <ol class="texto-branco" style="margin-left: 20px; margin-bottom: 1.5rem;">
+                                 <li>Cadastramento facial para o Restaurante Universitário</li>
+                                <li>Orientação sobre uso dos sistemas acadêmicos</li>
+                                <li>Acesso à e cadastramento da Biblioteca</li>
+                                <li>Como emitir o Passe Livre</li>
+                                <li>Uso dos sistemas internos seja Portal Acadêmico ou de processo de interno</li>
+                            </ol>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- Tabela de 3 colunas -->
+                <section class="content-section">
+                    <h3>Recursos Importantes e Links Úteis</h3>
+                    
+                    <div class="table-responsive">
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th width="15%">Serviço </th>
+                                    <th width="45%">Descrição </th>
+                                    <th width="40%">Acesso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-user-graduate fa-2x"></i></td>
+                                    <td><strong>Sistemas Integrados</strong><br>Acesso ao sistema acadêmico da UFMT</td>
+                                    <td><a href="https://sistemas.ufmt.br" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-file-alt fa-2x"></i></td>
+                                    <td><strong>SEI - UFMT</strong><br>Sistema Eletrônico de Informações da  UFMT para processos adminsitrativos internos</td>
+                                    <td><a href="https://sei.ufmt.br/sei/controlador_externo.php?acao=usuario_externo_logar&acao_origem=usuario_externo_enviar_cadastro&id_orgao_acesso_externo=0" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-book-open fa-2x"></i></td>
+                                    <td><strong>Biblioteca Central</strong><br>Acervo bibliográfico da UFMT</td>
+                                    <td><a href="https://www.ufmt.br/unidade/biblioteca" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-desktop fa-2x"></i></td>
+                                    <td><strong>Biblioteca Virtual</strong><br>Biblioteca Virtual da UFMT</td>
+                                    <td><a href="https://www.ufmt.br/unidade/biblioteca/pagina/bases-de-dados/8154#top_page" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-calendar-check fa-2x"></i></td>
+                                    <td><strong>Calendário Acadêmico</strong><br>Agenda Acadêmica da UFMT</td>
+                                    <td><a href="https://docs.google.com/document/d/1dv2MjiCwNnGhiRTdcXzgBNpp_XDbNjIt/edit?tab=t.0#heading=h.gjdgxs" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-utensils fa-2x"></i></td>
+                                    <td><strong>Restaurante Universitário</strong><br>Mais informações sobre o Restaurante Universitário</td>
+                                    <td><a href="https://www.ufmt.br/unidade/ru-ufmt" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><i class="fas fa-bus fa-2x"></i></td>
+                                    <td><strong>Passe Livre Estudantil</strong><br>Sobre o Curso</td>
+                                    <td><a href="https://ufmt.br/secretaria/sti/pagina/catalogo-de-servicos-cadastro-de-cartao-mtu-estudante-1669902961/10114" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
 
     <!-- Rodapé da página -->
     <footer>
-        <h5>© 2025  - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+        <div class="footer-content">
+            <div class="footer-logos">
+                <img src="logo_ufmt.png" alt="Logo UFMT" style="filter: brightness(0) invert(1)">
+                <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
+            </div>
+            
+            <div class="external-links">
+                <a href="https://ufmt.br/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Site Oficial da UFMT
+                </a>
+                <a href="https://www.ufmt.br/unidade/dest" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Curso de Estatística
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+            <h5>© 2025 - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+        </div>
     </footer>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
