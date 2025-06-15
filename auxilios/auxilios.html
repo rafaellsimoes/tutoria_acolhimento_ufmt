@@ -264,32 +264,100 @@
         }
         
         /* Footer */
+       footer {
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text-color);
+        text-align: center;
+        padding: 2rem;
+        margin-top: auto;
+        backdrop-filter: blur(5px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .footer-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-logos img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .social-links a {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+    
+    .external-links {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .external-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .external-links a:hover {
+        color: var(--accent-color);
+    }
+    
+    /* Responsividade para o Footer */
+    @media (max-width: 768px) {
         footer {
-            background: rgba(0, 0, 0, 0.2);
-            color: var(--text-color);
-            text-align: center;
             padding: 1.5rem;
-            margin-top: auto;
-            backdrop-filter: blur(5px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
         }
         
         .footer-logos img {
-            height: auto;
-            max-height: 50px;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
+            height: 50px;
         }
+        
+        .external-links {
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .social-links {
+            gap: 1rem;
+        }
+    }
         
         /* Media Queries para Mobile */
         @media (max-width: 768px) {
@@ -543,30 +611,30 @@
 
     <!-- Rodapé da página -->
        <footer>
-        <div class="footer-content">
-            <div class="footer-logos">
-                <img src="logo_ufmt.png" alt="Logo UFMT" style="filter: brightness(0) invert(1)">
-                <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
-            </div>
-            
-            <div class="external-links">
-                <a href="https://ufmt.br/" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Site Oficial da UFMT
-                </a>
-                <a href="https://www.ufmt.br/unidade/dest" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Curso de Estatística
-                </a>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            
-            <h5>© 2025 - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+    <div class="footer-content">
+        <div class="footer-logos">
+            <img src="logo_ufmt.png" alt="Logo UFMT" style="filter: brightness(0) invert(1)">
+            <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
         </div>
-    </footer>
+        
+        <div class="external-links">
+            <a href="https://ufmt.br/" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Site Oficial da UFMT
+            </a>
+            <a href="https://www.ufmt.br/unidade/dest" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Curso de Estatística
+            </a>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        
+        <h5>© 2025 - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+    </div>
+</footer>
 
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
