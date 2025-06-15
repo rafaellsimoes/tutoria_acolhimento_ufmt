@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configuração básica do documento -->
+    <meta charset="UTF-8">
+    
+    <!-- Importação de bibliotecas de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Importação do framework Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Configuração de viewport para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Tutoria de Acolhimento - Estatística - UFMT</title>
+    
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Estilo Geral da Página*/
+        h1 {
+            color: #f7f7f7;
+            font-family: 'Roboto', sans-serif;
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            font-family: 'Times', sans-serif;
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        h3{
+            color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+           
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h5{
+            color: #f7f7f7;
+            font-family: 'Times', sans-serif;
+            font-size: 1em;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        /* Estilo da Main*/
+
+        
+        /* Estilo geral do corpo da página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #0C3 0%, #006837 25%, #005C29 50%, #003366 75%, #001A33 100%);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilo do cabeçalho */
+        header {
+            background: radial-gradient(circle, #077dec 0%, #061f59 25%, #051264 50%, #003366 75%, #001A33 100%);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #0ff707;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            background: linear-gradient(45deg, #077dec 0%, #061f59 25%, #051264 50%, #003366 75%, #001A33 100%);
+            color: black;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        
+        /*Container para o Texto*/
+        .container-texto {
+            max-width: 800px;
+            max-height: 300px;
+            overflow: scroll;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #8cb009;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #077dec 0%, #061f59 25%, #051264 50%, #003366 75%, #001A33 100%);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /*Container para Imagem*/
+
+         .container-imagem {
+                max-width: 400px;
+                margin: 20px auto;
+                text-align: center;
+                vertical-align: top;
+                font-family: Arial, sans-serif;
+        }
+
+        .container-imagem img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+        }
+
+        .legenda {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #fbfbfb;
+        }
+
+        /*Estilo de botões*/
+        .btn-mt {
+            border: 2px solid #30b31c;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-mt:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(6, 64, 199, 0.2);
+        }
+        
+        /* Container para os botões no header */
+        .header-buttons {
+            margin-top: 1.5rem;
+            padding: 1rem;
+        }
+        /*Modelo para Tabelas do */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+
+            font-family: Arial, sans-serif;
+            color: rgb(251, 255, 9);
+        }
+
+         /* Cabeçalho com cor destacada */
+         thead th {
+        background-color: #05916e;
+        color: white;
+        padding: 12px;
+        text-align: left;
+        }
+
+        /* Linhas do corpo */
+        tbody td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #ecf0f15b;
+        }
+
+        /* Efeito hover simples */
+        tbody tr:hover {
+        background-color: #f8f9fa74;
+        }
+
+    
+        /*Cards*/
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: linear-gradient(135deg, #023146 0%, #011128 50%, #08d445 100%);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card h5 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.8;
+}
+/*Fonte da Página*/
+.texto-branco{
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: justify;    
+    text-justify: inter-word
+
+}
+
+.texto-branco, .link-rodape {
+  color: white;
+  display: block;       
+  text-align: justify;    
+  text-justify: inter-word;
+  margin: 5px 0;        
+}
+
+.link-rodape {
+  text-decoration: none; 
+  font-weight: bold;     
+}
+</style>
+</head>
+
+<body>
+    <!-- Cabeçalho da página com botões -->
+    <header>
+        <h1>Tutoria de Acolhimento</h1>
+        <p class="lead">Bem-Vindo ao Curso de Estatística </p>
+        
+        <!-- Botões no header -->
+       
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+       <div style="max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+
+        border-radius: 10px;
+     
+        font-family: Arial, 
+        sans-serif; 
+        line-height: 1.6;">
+    <h2>Programa de Tutoria da UFMT</h2>
+        <p class="texto-branco">O Programa de Tutoria da Universidade Federal de Mato Grosso (UFMT) é uma iniciativa institucional voltada à
+             redução da retenção e evasão nos cursos de graduação, por meio do fortalecimento dos conhecimentos essenciais da Educação Básica. ,
+             Seu objetivo é garantir que os estudantes dominem as bases necessárias para a compreensão das disciplinas do ensino superior, 
+             promovendo assim melhor desempenho acadêmico e conclusão oportuna dos cursos.
+        </p>
+        <p class="texto-branco" >Mais informações sobre o Programa de Tutoria da - UFMT </p>
+        <a href="https://www.ufmt.br/pro-reitoria/proeg/pagina/tutoria/505" target="_blank" class="link-rodape">PROEG - UFMT</a>
+    <h3>A Tutoria de Acolhimento</h3>
+  </div>
+
+
+
+
+
+
+</main>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <h5>© 2025  - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+    </footer>
+</body>
+</html>
