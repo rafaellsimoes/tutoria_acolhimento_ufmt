@@ -3,6 +3,8 @@
 <head>
     <!-- Configuração básica do documento -->
     <meta charset="UTF-8">
+    <!-- Melhor viewport para mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Importação de bibliotecas de ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -14,11 +16,7 @@
     <!-- Importação da fonte Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Configuração de viewport para dispositivos móveis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título da página que aparece na aba do navegador -->
-    <title>Tutoria de Acolhimento - Estatística - UFMT</title>
+    <title>Tutoria de Acolhimento - Auxílios Estudantis - UFMT</title>
     
     <!-- Estilos CSS personalizados -->
     <style>
@@ -47,21 +45,21 @@
             flex-direction: column;
         }
         
-        /* Tipografia Moderna */
+        /* Tipografia Responsiva */
         h1 {
             color: var(--text-color);
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
         
         h2 {
             color: var(--text-color);
             font-weight: 600;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.2rem;
             position: relative;
             display: inline-block;
         }
@@ -80,26 +78,34 @@
         h3 {
             color: var(--text-color);
             font-weight: 500;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 1.2rem;
         }
         
         h5 {
             color: var(--text-color);
             font-weight: 400;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             text-align: center;
             margin-bottom: 1rem;
         }
         
-        p {
-            margin-bottom: 1.5rem;
+        p, li {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 1rem;
         }
         
-        /* Estilo do cabeçalho */
+        .lead {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 300;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        /* Header */
         header {
             background: var(--bg-gradient);
-            padding: 2rem 1rem 3rem;
+            padding: 1.5rem 1rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -109,92 +115,85 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
         
         .header-logos img {
-            height: 80px;
+            height: auto;
+            max-height: 60px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
         }
         
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
-            opacity: 0.5;
-        }
-        
-        .lead {
-            font-size: 1.25rem;
-            font-weight: 300;
-            margin-bottom: 0;
-            opacity: 0.9;
-        }
-        
-        /* Container Principal */
+        /* Layout Principal */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
             flex: 1;
+            width: 100%;
         }
         
         .content-section {
-            padding: 2rem;
+            padding: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Sidebar de botões */
+        /* Sidebar */
         .sidebar {
-            padding-right: 2rem;
+            padding-right: 0;
+            margin-bottom: 1.5rem;
         }
         
         .btn-sidebar {
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             text-align: left;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1rem;
             border-radius: 8px;
             transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
-        /* Tabela moderna */
+        /* Tabela Responsiva */
         .modern-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 1rem 0;
             font-family: 'Poppins', sans-serif;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .modern-table th {
             background-color: rgba(48, 179, 28, 0.3);
             color: white;
-            padding: 15px;
+            padding: 12px;
             text-align: left;
             font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
         
         .modern-table td {
-            padding: 15px;
+            padding: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             vertical-align: middle;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
         
         .modern-table tr:last-child td {
@@ -211,155 +210,153 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-        }
-        
-        .table-link:hover {
-            color: #fff;
-            transform: translateX(3px);
-        }
-        
-        .table-link i {
-            font-size: 0.8em;
-        }
-        
-        .text-center {
-            text-align: center;
+            gap: 6px;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
         
         .table-responsive {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            margin: 0 -1rem;
+            padding: 0 1rem;
         }
         
-        /* Texto e Links */
-        .texto-branco {
-            color: var(--text-color);
-            text-align: justify;
-            text-justify: inter-word;
-            font-weight: 300;
+        /* Cards de Editais */
+        .card {
+            height: 100%;
+            transition: transform 0.3s;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
         }
         
-        .link-rodape {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 1rem;
+        .card:hover {
+            transform: translateY(-5px);
         }
         
-        .link-rodape:hover {
-            color: #fff;
-            transform: translateX(5px);
+        .card-body {
+            display: flex;
+            flex-direction: column;
         }
         
-        /* Rodapé */
+        .card-title {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #333;
+            margin-bottom: 0.75rem;
+        }
+        
+        .card-text {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: #555;
+            flex-grow: 1;
+        }
+        
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        
+        /* Alert */
+        .alert {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            padding: 1rem;
+        }
+        
+        /* Footer */
         footer {
             background: rgba(0, 0, 0, 0.2);
             color: var(--text-color);
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             margin-top: auto;
             backdrop-filter: blur(5px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
         }
         
         .footer-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 1rem;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
         
         .footer-logos img {
-            height: 60px;
+            height: auto;
+            max-height: 50px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
         }
         
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: var(--text-color);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        
-        .external-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .external-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .external-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        /* Listas */
-        .texto-branco ol, .texto-branco ul {
-            margin-left: 20px;
-            margin-bottom: 1.5rem;
-            padding-left: 20px;
-        }
-
-        .texto-branco li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Responsividade */
+        /* Media Queries para Mobile */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.75rem;
+            .header-logos img, .footer-logos img {
+                max-height: 50px;
             }
             
             .content-section {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
             
+            .modern-table {
+                display: block;
+            }
+            
+            .modern-table thead {
+                display: none;
+            }
+            
+            .modern-table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .modern-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .modern-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                margin-right: 1rem;
+                flex: 1;
+            }
+            
+            .modern-table td:last-child {
+                border-bottom: none;
+                justify-content: center;
+            }
+            
+            .row-cols-md-2 > * {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .header-logos, .footer-logos {
-                flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
             }
             
-            .header-logos img, .footer-logos img {
-                height: 60px;
+            .content-section {
+                padding: 1rem;
             }
             
-            .sidebar {
-                padding-right: 0;
-                margin-bottom: 2rem;
+            .btn-sidebar {
+                padding: 0.6rem 0.8rem;
+            }
+            
+            .table-responsive {
+                margin: 0 -0.75rem;
+                padding: 0 0.75rem;
             }
         }
     </style>
@@ -426,50 +423,50 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Auxílio Moradia</strong></td>
-                                    <td>Assistência financeira para estudantes de baixa renda custearem despesas com moradia</td>
-                                    <td class="text-center">Auxílio</td>
-                                    <td class="text-center">
+                                    <td data-label="Programa"><strong>Auxílio Moradia</strong></td>
+                                    <td data-label="Descrição">Assistência financeira para estudantes de baixa renda custearem despesas com moradia</td>
+                                    <td data-label="Tipo" class="text-center">Auxílio</td>
+                                    <td data-label="Link" class="text-center">
                                         <a href="https://docs.google.com/file/d/0B8Vz6Cx0fMr0WF8teGQ1dXhudjA/edit?resourcekey=0-jqnolZXgy0HmoLdSm6dsnA" target="_blank" class="table-link">
                                             <i class="fas fa-external-link-alt fa-lg"></i>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Casa do Estudante Universitário - CEU</strong></td>
-                                    <td>Estudantes de baixa renda dos campus de Cuiabá cujas famílias residam fora do município-sede da Universidade.</td>
-                                    <td class="text-center">Moradia</td>
-                                    <td class="text-center">
+                                    <td data-label="Programa"><strong>Casa do Estudante Universitário - CEU</strong></td>
+                                    <td data-label="Descrição">Estudantes de baixa renda dos campus de Cuiabá cujas famílias residam fora do município-sede da Universidade.</td>
+                                    <td data-label="Tipo" class="text-center">Moradia</td>
+                                    <td data-label="Link" class="text-center">
                                         <a href="https://cms.ufmt.br/files/galleries/11/33/9806ff88c98ff2ace06777b302fa52eee31e33203.pdf" target="_blank" class="table-link">
                                             <i class="fas fa-external-link-alt fa-lg"></i>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Bolsa Permanência</strong></td>
-                                    <td>Programa do governo federal para estudantes em vulnerabilidade socioeconômica</td>
-                                    <td class="text-center">Bolsa</td>
-                                    <td class="text-center">
+                                    <td data-label="Programa"><strong>Bolsa Permanência</strong></td>
+                                    <td data-label="Descrição">Programa do governo federal para estudantes em vulnerabilidade socioeconômica</td>
+                                    <td data-label="Tipo" class="text-center">Bolsa</td>
+                                    <td data-label="Link" class="text-center">
                                         <a href="https://cms.ufmt.br/files/galleries/11/Re3d120fd0eda651d4a4c4a7d6bb839202deba7d2.pdf" target="_blank" class="table-link">
                                             <i class="fas fa-external-link-alt fa-lg"></i>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Auxílio Evento</strong></td>
-                                    <td>Incentivo à participação em projetos acadêmicos e de pesquisa</td>
-                                    <td class="text-center">Auxílio</td>
-                                    <td class="text-center">
+                                    <td data-label="Programa"><strong>Auxílio Evento</strong></td>
+                                    <td data-label="Descrição">Incentivo à participação em projetos acadêmicos e de pesquisa</td>
+                                    <td data-label="Tipo" class="text-center">Auxílio</td>
+                                    <td data-label="Link" class="text-center">
                                         <a href="https://cms.ufmt.br/files/galleries/11/R6e74f6c9106307d721a1cf603b668c283a8b982c.pdf" target="_blank" class="table-link">
                                             <i class="fas fa-external-link-alt fa-lg"></i>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Programa Acolhimento Imediato - PAI</strong></td>
-                                    <td>Estudantes de graduação de baixa renda que residam fora do município/sede do campus da Universidade.</td>
-                                    <td class="text-center">Auxílio</td>
-                                    <td class="text-center">
+                                    <td data-label="Programa"><strong>Programa Acolhimento Imediato - PAI</strong></td>
+                                    <td data-label="Descrição">Estudantes de graduação de baixa renda que residam fora do município/sede do campus da Universidade.</td>
+                                    <td data-label="Tipo" class="text-center">Auxílio</td>
+                                    <td data-label="Link" class="text-center">
                                         <a href="https://cms.ufmt.br/files/galleries/11/R8d1362c8ef8f93a52707a7a5889429da6eaa7d87.pdf" target="_blank" class="table-link">
                                             <i class="fas fa-external-link-alt fa-lg"></i>
                                         </a>
@@ -487,7 +484,7 @@
                         <li>Ter frequência mínima exigida (para renovação)</li>
                     </ul>
                     
-                    <div class="alert alert-light mt-4" style="background-color: rgb(237, 232, 232); border-color: rgb(255, 255, 255);">
+                    <div class="alert alert-light mt-4" style="background-color: rgba(255, 255, 255, 0.9); border-color: rgba(255, 255, 255, 0.2);">
                         <i class="fas fa-info-circle me-2"></i> Os editais são publicados periodicamente no site da PRAE/UFMT com todos os detalhes e requisitos específicos de cada programa.
                     </div>
                     
@@ -496,51 +493,50 @@
                     </a>
                 </section>
 
-    <section class="content-section">
-    <h3>Atualizações da PRAE da UFMT</h3>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
-        
-        <!-- Card 1 -->
-        <div class="col">
-            <div class="card h-100 bg-light text-dark">
-                <div class="card-body">
-                    <h5 class="card-title">Concessão do Programa de Alimentação para Estudantes</h5>
-                    <p class="card-text">Edital Nº 08/2025 - Concessão do Programa de Alimentação para Estudantes</p>
-                    <a href="https://cms.ufmt.br/files/publication/627/S4b4a09af309184e8d09615153a7f9bd1c6847395.pdf" target="_blank" class="btn btn-success btn-sm">
-                        <i class="fas fa-external-link-alt me-1"></i> Acessar Edital
-                    </a>
-                </div>
-            </div>
-        </div>
+                <section class="content-section">
+                    <h3>Atualizações da PRAE da UFMT</h3>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
+                        
+                        <!-- Card 1 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Concessão do Programa de Alimentação para Estudantes</h5>
+                                    <p class="card-text">Edital Nº 08/2025 - Concessão do Programa de Alimentação para Estudantes</p>
+                                    <a href="https://cms.ufmt.br/files/publication/627/S4b4a09af309184e8d09615153a7f9bd1c6847395.pdf" target="_blank" class="btn btn-success btn-sm">
+                                        <i class="fas fa-external-link-alt me-1"></i> Acessar Edital
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Card 2 -->
-        <div class="col">
-            <div class="card h-100 bg-light text-dark">
-                <div class="card-body">
-                    <h5 class="card-title">Edital de Chromebooks</h5>
-                    <p class="card-text">Edital para concessão de Chromebooks</p>
-                    <a href="https://cms.ufmt.br/files/publication/627/S0918c16443f92ea989c7eb011dc839ca811fdf45.pdf" target="_blank" class="btn btn-success btn-sm">
-                        <i class="fas fa-external-link-alt me-1"></i> Acessar Edital
-                    </a>
-                </div>
-            </div>
-        </div>
+                        <!-- Card 2 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Edital de Chromebooks</h5>
+                                    <p class="card-text">Edital para concessão de Chromebooks</p>
+                                    <a href="https://cms.ufmt.br/files/publication/627/S0918c16443f92ea989c7eb011dc839ca811fdf45.pdf" target="_blank" class="btn btn-success btn-sm">
+                                        <i class="fas fa-external-link-alt me-1"></i> Acessar Edital
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Card 3 -->
-        <div class="col">
-            <div class="card h-100 bg-light text-dark">
-                <div class="card-body">
-                    <h5 class="card-title">Programação da Assistência Estudantil</h5>
-                    <p class="card-text">Edital em fluxo contínuo - Programação da Assistência Estudantil</p>
-                    <a href="https://cms.ufmt.br/files/publication/627/Sc4a19f2ccb63c9f9c5f96a69c9b9e08f4a21054b.pdf" target="_blank" class="btn btn-success btn-sm">
-                        <i class="fas fa-download me-1"></i> Baixar Arquivo
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+                        <!-- Card 3 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Programação da Assistência Estudantil</h5>
+                                    <p class="card-text">Edital em fluxo contínuo - Programação da Assistência Estudantil</p>
+                                    <a href="https://cms.ufmt.br/files/publication/627/Sc4a19f2ccb63c9f9c5f96a69c9b9e08f4a21054b.pdf" target="_blank" class="btn btn-success btn-sm">
+                                        <i class="fas fa-download me-1"></i> Baixar Arquivo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
