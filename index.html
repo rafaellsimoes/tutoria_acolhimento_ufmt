@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Configuração básica do documento -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Ícones -->
+    <!-- Importação de bibliotecas de ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- Bootstrap -->
+    <!-- Importação do framework Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Fonte -->
+    <!-- Importação da fonte Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Configuração de viewport para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
     <title>Tutoria de Acolhimento - Estatística - UFMT</title>
     
+    <!-- Estilos CSS personalizados -->
     <style>
+        /* Estilo Geral da Página */
         :root {
             --primary-color: #1a4b8c;
             --secondary-color: #0a2fb3;
@@ -41,21 +47,21 @@
             flex-direction: column;
         }
         
-        /* Tipografia Responsiva */
+        /* Tipografia Moderna */
         h1 {
             color: var(--text-color);
             font-weight: 700;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
         }
         
         h2 {
             color: var(--text-color);
             font-weight: 600;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 1.2rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
         }
@@ -74,35 +80,27 @@
         h3 {
             color: var(--text-color);
             font-weight: 500;
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         
         h5 {
             color: var(--text-color);
             font-weight: 400;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: 1rem;
             text-align: center;
             margin-bottom: 1rem;
         }
         
-        p, li {
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            margin-bottom: 1rem;
+        p {
+            margin-bottom: 1.5rem;
         }
         
-        .lead {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            font-weight: 300;
-            margin-bottom: 0;
-            opacity: 0.9;
-        }
-        
-        /* Header */
+        /* Estilo do cabeçalho */
         header {
             background: var(--bg-gradient);
-            padding: 1.5rem 1rem 2rem;
+            padding: 2rem 1rem 3rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -112,16 +110,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
         .header-logos img {
-            height: auto;
-            max-height: 60px;
+            height: 80px;
             width: auto;
-            max-width: 100%;
             object-fit: contain;
         }
         
@@ -136,72 +131,71 @@
             opacity: 0.5;
         }
         
-        /* Layout Principal */
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        /* Container Principal */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 2rem;
             flex: 1;
-            width: 100%;
         }
         
         .content-section {
-            padding: 1.5rem;
+            padding: 2rem;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* Sidebar */
+        /* Sidebar de botões */
         .sidebar {
-            padding-right: 0;
-            margin-bottom: 1.5rem;
+            padding-right: 2rem;
         }
         
         .btn-sidebar {
             width: 100%;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             text-align: left;
-            padding: 0.75rem 1rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
             transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         
-        /* Tabela */
+        /* Tabela moderna */
         .modern-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0;
+            margin: 20px 0;
             font-family: 'Poppins', sans-serif;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         
         .modern-table th {
             background-color: rgba(48, 179, 28, 0.3);
             color: white;
-            padding: 12px;
+            padding: 15px;
             text-align: left;
             font-weight: 600;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
         
         .modern-table td {
-            padding: 12px;
+            padding: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             vertical-align: middle;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
         
         .modern-table tr:last-child td {
@@ -218,8 +212,7 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            gap: 8px;
         }
         
         .table-link:hover {
@@ -238,27 +231,36 @@
         .table-responsive {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            margin: 0 -1rem;
-            padding: 0 1rem;
         }
         
-        /* Links */
+        /* Texto e Links */
+        .texto-branco {
+            color: var(--text-color);
+            text-align: justify;
+            text-justify: inter-word;
+            font-weight: 300;
+        }
+        
         .link-rodape {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
             display: inline-block;
-            margin-top: 0.75rem;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-top: 1rem;
         }
         
-        /* Footer */
+        .link-rodape:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+        
+        /* Rodapé */
         footer {
             background: rgba(0, 0, 0, 0.2);
             color: var(--text-color);
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
             margin-top: auto;
             backdrop-filter: blur(5px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -268,41 +270,43 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
         
         .footer-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 2rem;
             margin-bottom: 1rem;
-            flex-wrap: wrap;
         }
         
         .footer-logos img {
-            height: auto;
-            max-height: 50px;
+            height: 60px;
             width: auto;
-            max-width: 100%;
             object-fit: contain;
         }
         
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 0.75rem;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
         
         .social-links a {
             color: var(--text-color);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
         }
         
         .external-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -314,107 +318,48 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
         
-        /* Melhorias para Mobile */
-        @media (max-width: 992px) {
-            .main-container {
-                padding: 0.75rem;
+        .external-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
             }
             
             .content-section {
-                padding: 1.25rem;
+                padding: 1.5rem;
             }
             
             .header-logos, .footer-logos {
-                gap: 0.75rem;
-            }
-            
-            .header-logos img, .footer-logos img {
-                max-height: 50px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 0.75rem 1.5rem;
-            }
-            
-            .content-section {
-                padding: 1rem;
-                border-radius: 10px;
-            }
-            
-            .modern-table th, 
-            .modern-table td {
-                padding: 10px 8px;
-            }
-            
-            .btn-sidebar {
-                padding: 0.6rem 0.8rem;
-            }
-            
-            .table-responsive {
-                margin: 0 -0.75rem;
-                padding: 0 0.75rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-logos img, .footer-logos img {
-                max-height: 40px;
-            }
-            
-            .content-section {
-                padding: 0.75rem;
-            }
-            
-            .modern-table {
-                display: block;
-            }
-            
-            .modern-table thead {
-                display: none;
-            }
-            
-            .modern-table tr {
-                display: block;
-                margin-bottom: 1rem;
-                border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .modern-table td {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            
-            .modern-table td::before {
-                content: attr(data-label);
-                font-weight: 600;
-                margin-right: 1rem;
-                flex: 1;
-            }
-            
-            .modern-table td:last-child {
-                border-bottom: none;
-            }
-            
-            .external-links {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 1rem;
+            }
+            
+            .header-logos img, .footer-logos img {
+                height: 60px;
+            }
+            
+            .sidebar {
+                padding-right: 0;
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Cabeçalho da página com botões -->
     <header>
         <div class="header-logos">
-            <img src="logo_ufmt.png" alt="Logo UFMT" style="filter: brightness(0) invert(1)">
+        
             <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
         </div>
         
@@ -424,8 +369,10 @@
         </div>
     </header>
 
+    <!-- Conteúdo principal -->
     <main class="main-container">
         <div class="row">
+            <!-- Sidebar com botões -->
             <div class="col-lg-3 sidebar">
                 <div class="content-section">
                     <h3>Navegue e não fique perdido</h3>
@@ -449,6 +396,7 @@
                 </div>
             </div>
             
+            <!-- Conteúdo principal -->
             <div class="col-lg-9">
                 <div class="row">
                     <div class="col-md-6">
@@ -477,6 +425,7 @@
                     </div>
                 </div>
                 
+                <!-- Tabela de 3 colunas -->
                 <section class="content-section">
                     <h3>Recursos Importantes e Links Úteis</h3>
                     
@@ -492,38 +441,38 @@
                             <tbody>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-user-graduate fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>Sistemas Integrados</strong><br>Acesso ao sistema acadêmico da UFMT</td>
-                                    <td data-label="Acesso"><a href="https://sistemas.ufmt.br" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>Sistemas Integrados</strong><br>Acesso ao sistema acadêmico da UFMT</td>
+                                    <td><a href="https://sistemas.ufmt.br" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-file-alt fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>SEI - UFMT</strong><br>Sistema Eletrônico de Informações da  UFMT para processos adminsitrativos internos</td>
-                                    <td data-label="Acesso"><a href="https://sei.ufmt.br/sei/controlador_externo.php?acao=usuario_externo_logar&acao_origem=usuario_externo_enviar_cadastro&id_orgao_acesso_externo=0" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>SEI - UFMT</strong><br>Sistema Eletrônico de Informações da  UFMT para processos adminsitrativos internos</td>
+                                    <td><a href="https://sei.ufmt.br/sei/controlador_externo.php?acao=usuario_externo_logar&acao_origem=usuario_externo_enviar_cadastro&id_orgao_acesso_externo=0" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-book-open fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>Biblioteca Central</strong><br>Acervo bibliográfico da UFMT</td>
-                                    <td data-label="Acesso"><a href="https://www.ufmt.br/unidade/biblioteca" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>Biblioteca Central</strong><br>Acervo bibliográfico da UFMT</td>
+                                    <td><a href="https://www.ufmt.br/unidade/biblioteca" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-desktop fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>Biblioteca Virtual</strong><br>Biblioteca Virtual da UFMT</td>
-                                    <td data-label="Acesso"><a href="https://www.ufmt.br/unidade/biblioteca/pagina/bases-de-dados/8154#top_page" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>Biblioteca Virtual</strong><br>Biblioteca Virtual da UFMT</td>
+                                    <td><a href="https://www.ufmt.br/unidade/biblioteca/pagina/bases-de-dados/8154#top_page" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-calendar-check fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>Calendário Acadêmico</strong><br>Agenda Acadêmica da UFMT</td>
-                                    <td data-label="Acesso"><a href="https://docs.google.com/document/d/1dv2MjiCwNnGhiRTdcXzgBNpp_XDbNjIt/edit?tab=t.0#heading=h.gjdgxs" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>Calendário Acadêmico</strong><br>Agenda Acadêmica da UFMT</td>
+                                    <td><a href="https://docs.google.com/document/d/1dv2MjiCwNnGhiRTdcXzgBNpp_XDbNjIt/edit?tab=t.0#heading=h.gjdgxs" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-utensils fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>Restaurante Universitário</strong><br>Mais informações sobre o Restaurante Universitário</td>
-                                    <td data-label="Acesso"><a href="https://www.ufmt.br/unidade/ru-ufmt" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>Restaurante Universitário</strong><br>Mais informações sobre o Restaurante Universitário</td>
+                                    <td><a href="https://www.ufmt.br/unidade/ru-ufmt" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><i class="fas fa-bus fa-2x"></i></td>
-                                    <td data-label="Descrição"><strong>Passe Livre Estudantil</strong><br>Sobre o Curso</td>
-                                    <td data-label="Acesso"><a href="https://ufmt.br/secretaria/sti/pagina/catalogo-de-servicos-cadastro-de-cartao-mtu-estudante-1669902961/10114" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
+                                    <td><strong>Passe Livre Estudantil</strong><br>Sobre o Curso</td>
+                                    <td><a href="https://ufmt.br/secretaria/sti/pagina/catalogo-de-servicos-cadastro-de-cartao-mtu-estudante-1669902961/10114" target="_blank" class="table-link">Acessar <i class="fas fa-external-link-alt"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -533,10 +482,11 @@
         </div>
     </main>
 
+    <!-- Rodapé da página -->
     <footer>
         <div class="footer-content">
             <div class="footer-logos">
-                <img src="logo_ufmt.png" alt="Logo UFMT" style="filter: brightness(0) invert(1)">
+             
                 <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
             </div>
             
@@ -555,13 +505,11 @@
                 </a>
             </div>
             
-            <h5>© 2025 - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+            <h5>© 2025 - Tutoria de Acolhimento - Estatística </h5>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>tstrap -->
+    <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
