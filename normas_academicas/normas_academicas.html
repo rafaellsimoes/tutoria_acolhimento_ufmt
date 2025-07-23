@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configuração básica do documento -->
+    <meta charset="UTF-8">
+    
+    <!-- Importação de bibliotecas de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Importação do framework Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Importação da fonte Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Configuração de viewport para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Tutoria de Acolhimento - Estatística - UFMT</title>
+    
+    <!-- Estilos CSS personalizados -->
+    <style>
+        :root {
+            --primary-color: #1a4b8c;
+            --secondary-color: #0a2fb3;
+            --accent-color: #30b31c;
+            --accent-color-2: #2ecc71;
+            --text-color: #f7f7f7;
+            --bg-gradient: linear-gradient(135deg, #1a4b8c 0%, #0a2fb3 50%, #003366 100%);
+            --section-bg: rgba(255,255,255,0.10);
+            --section-border: #30b31c44;
+            --card-bg: #fff;
+            --card-shadow: 0 8px 32px rgba(30, 75, 140, 0.10);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a4b8c 0%, #0a2fb3 50%, #003366 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-section {
+            background: var(--section-bg);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(30, 75, 140, 0.10);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .sidebar-container {
+            position: sticky;
+            top: 20px;
+        }
+        .sidebar-menu {
+            background: var(--section-bg);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 24px rgba(30, 75, 140, 0.10);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .normas-section {
+            background: transparent;
+            border-radius: 14px;
+            border-left: 5px solid var(--accent-color);
+            margin-bottom: 2rem;
+            padding: 0.5rem 0.2rem 0.2rem 0.2rem;
+        }
+        .accordion-button {
+            background: linear-gradient(90deg, #1a4b8c 60%, #0a2fb3 100%);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 10px !important;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 8px rgba(30, 75, 140, 0.08);
+        }
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(90deg, #0a2fb3 60%, #1a4b8c 100%);
+            color: #fff;
+        }
+        .accordion-item {
+            background: transparent;
+            border: none;
+        }
+        .accordion-body {
+            background: transparent;
+            color: #222;
+            border-radius: 0 0 10px 10px;
+        }
+        .norma-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: var(--card-shadow);
+            padding: 1rem 1.2rem;
+            color: #222;
+        }
+        .norma-item:hover {
+            background: #f7f7f7;
+            box-shadow: 0 4px 16px rgba(48,179,28,0.13);
+        }
+        .norma-title a {
+            color: #1a4b8c !important;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .norma-title a:hover {
+            color: var(--accent-color) !important;
+            text-decoration: underline;
+        }
+        .norma-content {
+            color: #333;
+            font-size: 0.98rem;
+        }
+        .alert-info {
+            background: linear-gradient(90deg, #e3f6e8 60%, #f7fffacc 100%);
+            color: #1a4b8c;
+            border: 1px solid var(--accent-color-2);
+            border-radius: 10px;
+        }
+        #welcome-message {
+            background: linear-gradient(90deg, #1a4b8c 60%, #0a2fb3 100%);
+            color: #fff;
+            border-radius: 12px;
+            padding: 0.7rem 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(30, 75, 140, 0.10);
+        }
+        #back-to-top {
+            background: linear-gradient(135deg, #30b31c 60%, #1a4b8c 100%);
+        }
+        #back-to-top:hover {
+            background: #0a2fb3;
+        }
+        header {
+            background: linear-gradient(135deg, #1a4b8c 0%, #0a2fb3 100%);
+            padding: 1.5rem 1rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        .header-logos img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        h1 {
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 2.1rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.18);
+            color: var(--text-color);
+            text-align: center;
+            padding: 1.2rem;
+            margin-top: auto;
+            backdrop-filter: blur(4px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .footer-logos img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        .external-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .external-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .external-links a:hover {
+            color: var(--accent-color);
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        h5 {
+            color: var(--text-color);
+            font-weight: 400;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .btn-sidebar {
+            width: 100%;
+            margin-bottom: 0.75rem;
+            text-align: left;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .btn-sidebar i {
+            margin-right: 0.75rem;
+        }
+        @media (max-width: 992px) {
+            .sidebar-container {
+                position: relative;
+                top: 0;
+                margin-bottom: 2rem;
+            }
+            .header-logos, .footer-logos {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            .header-logos img, .footer-logos img {
+                height: 36px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            footer {
+                padding: 0.7rem;
+            }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .accordion-button.collapsed .section-icon {
+            transform: rotate(0deg);
+            transition: transform 0.3s;
+        }
+        .accordion-button .section-icon {
+            transform: rotate(90deg);
+            transition: transform 0.3s;
+        }
+        .norma-item {
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .norma-item:hover {
+            background: rgba(48,179,28,0.12);
+            box-shadow: 0 2px 8px rgba(48,179,28,0.08);
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: none;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #back-to-top:hover {
+            background: #1a4b8c;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .main-content {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <div class="header-logos">
+            <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
+        </div>
+        
+        <div class="container">
+            <h1>Normas Acadêmicas UFMT</h1>
+            <p class="lead">Algumas referencias de normas acadêmicas da UFMT</p>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="container main-content py-4">
+        <div class="row">
+            <!-- Sidebar com botões -->
+            <div class="col-lg-3">
+                <div class="sidebar-container">
+                    <div class="sidebar-menu">
+                        <h3 class="text-white mb-3">Navegação</h3>
+                        <div class="d-grid gap-2">
+                            <a href="index.html" class="btn btn-success btn-sidebar">
+                                <i class="fas fa-home"></i>Início
+                            </a>
+                            <a href="auxilios.html" class="btn btn-outline-light btn-sidebar">
+                                <i class="fas fa-info-circle"></i>Auxílios Estudantis
+                            </a>
+                            <a href="#" class="btn btn-outline-light btn-sidebar">
+                                <i class="fas fa-book"></i>Material Auxiliar
+                            </a>
+                            <a href="#" class="btn btn-outline-light btn-sidebar">
+                                <i class="fas fa-envelope"></i>Contato
+                            </a>
+                            <a href="#" class="btn btn-outline-light btn-sidebar">
+                                <i class="fas fa-question-circle"></i>Ajuda
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo principal -->
+            <div class="col-lg-9">
+                <!-- Mensagem de boas-vindas -->
+                <div id="welcome-message">
+                    👋 Bem-vindo(a)! Explore as normas acadêmicas de forma interativa e fácil!
+                </div>
+
+                <!-- Seções de Normas Acadêmicas -->
+                <div class="content-section">
+                    <h2 class="text-white">Normas Acadêmicas da UFMT</h2>
+                    <p class="text-white">Documentação atualizada em 11/04/2025 pela Gerência de Normas e Projetos Pedagógicos - GNPP / CEG / PROEG</p>
+
+                    <div class="row">
+                        <!-- Coluna 1 -->
+                        <div class="col-md-6">
+                            <!-- Seção 1: Ações Afirmativas -->
+                            <div class="normas-section fade-in-section">
+                                <h4>1. Ações Afirmativas</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9204&ano=2017&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 131, de 30 de Outubro de 2017
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Dispõe sobre a adequação da Resolução Consepe Nº 98, de 13 de novembro de 2012, que trata da adequação do Programa de Ação Afirmativa na UFMT, à Lei Nº 13.409/2016.
+                                    </div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8219&ano=2012&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 98, de 13 de Novembro de 2012
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Dispõe sobre a adequação da Resolução Consepe Nº 97, de 31 de Outubro de 2011, que trata da criação do Programa de Ação Afirmativa na UFMT, à Lei Nº 12.711/2012.
+                                    </div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8079&ano=2011&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 97, de 31 de Outubro de 2011
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Dispõe sobre a criação de um Programa de Ação Afirmativa destinado a estudantes egressos de escola pública e estudantes negros.
+                                    </div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/FrmConsultarResolucao.aspx?pageIndex=&txtCriterio=&txtNumero=197&txtAno=2021&tipoUID=" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 197, de 13 de Dezembro de 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Dispõe sobre a política de ações afirmativas para negros/as autodeclarados/as (pretos/as e pardos/as), quilombolas, indígenas, pessoas com deficiência, pessoas trans (transexuais, trangêneros e travestis), na Pós-Graduação da UFMT.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 2: Admissão de Graduados -->
+                            <div class="normas-section fade-in-section">
+                                <h4>2. Admissão de Graduados</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://sei.ufmt.br/sei/controlador.php?acao=procedimento_trabalhar&acao_origem=protocolo_pesquisa_rapida&id_protocolo=1261782&infra_sistema=100000100&infra_unidade_atual=110000040&infra_hash=e9db5d4a14842a07bdc40343f8674e6a5caa18a7bd3500b6ca19d5a7ee81f908" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 175, de 30 de Agosto de 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Aprova as Normas Regulamentadoras para ocupação de vagas remanescentes dos Cursos de Graduação Presencial e a Distância da Universidade Federal do Mato Grosso
+                                    </div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9946&ano=2022&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 224, de 25 de Abril de 2022
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Dispõe sobre alteração na Resolução Consepe Nº 175, de 30 de agosto de 2021 – ocupação de vagas remanescentes.
+                                    </div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://www.ufmt.br/ingresso/" target="_blank" title="Abrir resolução completa">
+                                            Editais para Admissão de Graduados disponíveis em:
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Admissão de Graduados</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 3: Alunos Especiais -->
+                            <div class="normas-section fade-in-section">
+                                <h4>3. Alunos Especiais</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9096&ano=2017&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 67, de 29 de Maio de 2017
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">
+                                        Dispõe sobre normas para a matrícula de alunos especiais que almejam cursar componentes curriculares isolados da graduação na Universidade Federal de Mato Grosso e dá outras providências.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 4: Ampliação de Vagas -->
+                            <div class="normas-section fade-in-section">
+                                <h4>4. Ampliação de Vagas</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8656&ano=2014&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 106, de 23 de Outubro de 2014
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre ampliação de vagas nos cursos de graduação da UFMT.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 5: Aproveitamento de Estudos -->
+                            <div class="normas-section fade-in-section">
+                                <h4>5. Aproveitamento de Estudos</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9136&ano=2017&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 83, de 26 de Junho de 2017
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre aproveitamento de estudos nos cursos de graduação da UFMT</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9137&ano=2017&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 88, de 11 de Julho de 2024
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre retificação do Art. 23 da Resolução Consepe Nº 83, de 26 de junho de 2017, que aprovou as normas referentes ao aproveitamento de estudos nos cursos de graduação nas modalidades presencial e a distância.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 6: Assistência Estudantil -->
+                            <div class="normas-section fade-in-section">
+                                <h4>6. Assistência Estudantil</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://ufmt.br/pro-reitoria/prae/pagina/normativas/1364" target="_blank" title="Abrir resolução completa">
+                                            Normas da Assistência Estudantil
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Normas definidas pela Pró-Reitoria de Assistência Estudantil da UFMT</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 7: Aulas de Campo -->
+                            <div class="normas-section fade-in-section">
+                                <h4>7. Aulas de Campo</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8689&ano=2014&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 117, de 02 de Outubro de 2014
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre regulamentação que disciplina as aulas de campo dos cursos de graduação da Universidade Federal de Mato Grosso.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 8: Autoavaliação dos Cursos -->
+                            <div class="normas-section fade-in-section">
+                                <h4>8. Autoavaliação dos Cursos</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/FrmConsultarResolucao.aspx?pageIndex=&txtCriterio=&txtNumero=415&txtAno=2023&tipoUID=OpenResolucao.aspx?resolucaoUID=9544&ano=2019&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 415, de 30 de Outubro de 2023
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre a aprovação das diretrizes institucionais que regulamentam a autoavaliação dos cursos de graduação presencial e a distância, da UFMT</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 9: Avaliação da Aprendizagem -->
+                            <div class="normas-section fade-in-section">
+                                <h4>9. Avaliação da Aprendizagem</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9354&ano=2018&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 63, de 24 de Setembro de 2018
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre regulamento da avaliação da aprendizagem nos cursos presenciais de graduação da Universidade Federal de Mato Grosso</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=10481&ano=2024&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 500, de 30 de Setembro de 2024
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre a alteração na Resolução CONSEPE Nº 63, de 24 de setembro de 2018.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 10: Biblioteca Digital -->
+                            <div class="normas-section fade-in-section">
+                                <h4>10. Biblioteca Digital</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/FrmConsultarResolucao.aspx?pageIndex=&txtCriterio=&txtNumero=138&txtAno=2021&tipoUID=" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 138, de 07 de Junho de 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre alteração do regulamento de funcionamento da Biblioteca Digital de Trabalhos de Cursos e Monografias de Especialização da UFMT</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Coluna 2 -->
+                        <div class="col-md-6">
+                            <!-- Seção 11: Calendário Acadêmico -->
+                            <div class="normas-section fade-in-section">
+                                <h4>11. Calendário Acadêmico</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=10429&ano=2024&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 485, de 20 de Agosto de 2024
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre alteração da Resolução CONSEPE Nº 388, de 28 de agosto de 2023, que aprova o Calendário da Universidade Federal de Mato Grosso, dos anos letivos 2024 e 2025 para os Campi Universitários do Araguaia, Cuiabá, Várzea Grande e Sinop.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://cms.ufmt.br/files/galleries/17/ARQUIVOS%20PROEG%20SECRETARIA/R386a283c7a1bcef5b665fe03d6dc97ab85beab5d.pdf?_gl=1*q0s9eo*_ga*NjI1NzExNjc2LjE3MDQzMDE2Mzk.*_ga_1BSMJE6838*MTcxMTIzNDM5MC44OC4xLjE3MTEyMzUxMzkuNTkuMC4w" target="_blank" title="Abrir resolução completa">
+                                            Resolução CONSEPE Nº 388, de 28 de Agosto de 2023
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre alteração da Resolução CONSEPE Nº 388, de 28 de agosto de 2023, que aprova o Calendário da Universidade Federal de Mato Grosso, dos anos letivos 2024 e 2025 para os Campi Universitários do Araguaia, Cuiabá, Várzea Grande e Sinop.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://docs.google.com/document/d/1sT276FNGRBKD7KfIYErymaWUZ2w6TWk8/edit" target="_blank" title="Abrir resolução completa">
+                                            Agenda Acadêmica 2024
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Resumo do calendário acadêmico para os anos letivos 2024</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://docs.google.com/document/d/1dv2MjiCwNnGhiRTdcXzgBNpp_XDbNjIt/edit#heading=h.gjdgxs" target="_blank" title="Abrir resolução completa">
+                                            Agenda Acadêmica 2025
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Resumo do calendário acadêmico para os anos letivos 2025</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 12: Colação de Grau -->
+                            <div class="normas-section fade-in-section">
+                                <h4>12. Colação de Grau</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://cms.ufmt.br/files/galleries/29/Pe9f8e407f9935d695cf2e87291e1f84ae6d14bc0.pdf?_gl=1*r79ps7*_ga*NjI1NzExNjc2LjE3MDQzMDE2Mzk.*_ga_1BSMJE6838*MTcxMTI5MzE1Ni45MC4wLjE3MTEyOTMxNTcuNTkuMC4w" target="_blank" title="Abrir resolução completa">
+                                            Portaria da Reitoria Nº 21-N, de 28 de Setembro de 2022
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Estabele normas referentes à organização e à realização das sessões solenes de outorga de grau dos estudantes concluintes dos cursos de graduação da UFMT.</div>
+                                </div>
+                            </div>
+
+                            <!-- Seção 13: Colegiado de Curso -->
+                            <div class="normas-section fade-in-section">
+                                <h4>13. Colegiado de Curso</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9890&ano=2021&tipoUID=3" target="_blank" title="Abrir resolução completa">
+                                            Resolução COSUNI Nº 48, DE 24 DE NOVEMBRO DE 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispões sobre funcionamento e atribuição da gestão em nível básico dos Cursos de Graduação da Universidade Federal de Mato Grosso.</div>
+                                </div>
+                            </div>
+
+                            <!-- Seção 14: Comitês de Ética em Pesquisa -->
+                            <div class="normas-section fade-in-section">
+                                <h4>14. Comitês de Ética em Pesquisa</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8666&ano=2014&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 103, DE 02 DE OUTUBRO DE 2014
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre normas para a criação de Comitês de Ética em Pesquisa da UFMT e revoga as Resoluções Consepe n.º 29, de 02 de junho de 1997 e a n.º 56 de 22 de setembro de 1997.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8667&ano=2014&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 104, DE 02 DE OUTUBRO DE 2014
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre a criação do Comitê de Ética em Pesquisa com Seres Humanos da área de Humanidades.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=8668&ano=2014&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 105, DE 02 DE OUTUBRO DE 2014
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre a criação do Comitê de Ética em Pesquisa com Seres Humanos da área de Saúde - CEP-Saúde.</div>
+                                </div>
+                            </div>
+
+                            <!-- Seção 15: Cursos EAD -->
+                            <div class="normas-section fade-in-section">
+                                <h4>15. Cursos EAD</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://cms.ufmt.br/files/galleries/17/C661fab0669f65930cd429d20a7036001682e32c4.pdf?_gl=1*gcoss1*_ga*NjI1NzExNjc2LjE3MDQzMDE2Mzk.*_ga_1BSMJE6838*MTcxMTI5MzE1Ni45MC4xLjE3MTEyOTYyMDUuNjAuMC4w" target="_blank" title="Abrir resolução completa">
+                                            Instrução Normativa Conjunta PROEG/STI, de 02 de Dezembro de 2015
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Orienta a criação ou reoferta de Cursos de Graduação na modalidade a distância (EaD), na Universidade Federal de Mato Grosso.</div>
+                                </div>
+                            </div>
+
+                            <!-- Seção 16: Cursos Afins -->
+                            <div class="normas-section fade-in-section">
+                                <h4>16. Cursos Afins</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/FrmConsultarResolucao.aspx?pageIndex=&txtCriterio=&txtNumero=163&txtAno=2021&tipoUID=" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 163, DE 26 DE JULHO DE 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre os cursos afins no âmbito da Universidade Federal de Mato Grosso, para fins de equivalência e análise curricular.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 17: Deficiência -->
+                            <div class="normas-section fade-in-section">
+                                <h4>17. Deficiência</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://cms.ufmt.br/files/galleries/11/31/NOTA_TECNICA_001_2020.pdf" target="_blank" title="Abrir resolução completa">
+                                            NOTA TÉCNICA N.º 001/2020 - GAI/CPAAAE/PRAE
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Inclusão de pessoas com deficiência e o ensino mediado por tecnologias da informação e da comunicação.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9787&ano=2021&tipoUID=3" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 35 DE 19 DE MAIO DE 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre a reestruturação do Núcleo de Inclusão e Educação Especial no âmbito da Universidade Federal de Mato Grosso - NAI - Núcleo de Acessibilidade e Inclusão.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 18: Diário de Classe -->
+                            <div class="normas-section fade-in-section">
+                                <h4>18. Diário de Classe</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9293&ano=2018&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 26, DE 07 DE MAIO DE 2018
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre aprovação do Regulamento do Diário de Classe on-line e Relatório de Notas nos Cursos de Graduação Presencial e a distância da Universidade Federal de Mato Grosso, em relação aos procedimentos e orientações para preenchimento e execução.</div>
+                                </div>
+                            </div>
+
+                            <!-- Seção 19: Encargos Didático -->
+                            <div class="normas-section fade-in-section">
+                                <h4>19. Encargos Didático</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=7915&ano=2010&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 158, DE 29 DE NOVEMBRO DE 2010
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre normas para distribuição de encargos didáticos, segundo o regime de trabalho dos docentes.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://sei.ufmt.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=2054031&id_documento=2054034" target="_blank" title="Abrir resolução completa">
+                                            OFÍCIO-CIRCULAR Nº 1/2019/PROEG - PRÓ-REITOR(A)/UFMT, DE 24 DE SETEMBRO DE 2019 [DOCUMENTO SEI N.º 1836514]
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Número mínimo de alunos por turma e Memorando 097/PROEG/2017 - Encargos didáticos, Estágio e TCC.</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Seção 20: Estágio -->
+                            <div class="normas-section fade-in-section">
+                                <h4>20. Estágio</h4>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9799&ano=2021&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 134, DE 07 DE JUNHO DE 2021
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre o Regulamento Geral de Estágio da Universidade Federal de Mato Grosso e revoga a Resolução Consepe 117/2009.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="http://sistemas.ufmt.br/ufmt.resolucao/OpenResolucao.aspx?resolucaoUID=9694&ano=2020&tipoUID=2" target="_blank" title="Abrir resolução completa">
+                                            RESOLUÇÃO CONSEPE N.º 60, DE 28 DE SETEMBRO DE 2020
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre a regulamentação dos Estágios Obrigatórios e Não-Obrigatórios durante a pandemia do Coronavírus.</div>
+                                </div>
+                                <div class="norma-item">
+                                    <div class="norma-title">
+                                        <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11788.htm" target="_blank" title="Abrir resolução completa">
+                                            LEI N.º 11.788, DE 25 DE SETEMBRO DE 2008 [LEI DO ESTÁGIO]
+                                        </a>
+                                    </div>
+                                    <div class="norma-content">Dispõe sobre o estágio dos estudantes.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-info-circle me-2"></i> Para consultar as demais normas acadêmicas, visite o site oficial da UFMT ou entre em contato com a secretaria do seu curso.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logos">
+                <img src="estatistica_ufmt.png" alt="Símbolo da Estatística" style="filter: brightness(0) invert(1)">
+            </div>
+            
+            <div class="external-links">
+                <a href="https://ufmt.br/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Site Oficial da UFMT
+                </a>
+                <a href="https://www.ufmt.br/unidade/dest" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Curso de Estatística
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+            <h5>© 2025 - Tutoria de Acolhimento - Estatística - ICET - UFMT</h5>
+        </div>
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+    <button id="back-to-top" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // Accordion interativo para as seções
+    document.addEventListener('DOMContentLoaded', function() {
+        // Transformar cada .normas-section em um accordion
+        const sections = document.querySelectorAll('.normas-section');
+        sections.forEach((section, idx) => {
+            const h4 = section.querySelector('h4');
+            const content = Array.from(section.children).filter(el => el !== h4);
+            
+            // Criar estrutura de accordion
+            const accordion = document.createElement('div');
+            accordion.className = 'accordion';
+            
+            const item = document.createElement('div');
+            item.className = 'accordion-item';
+            
+            const header = document.createElement('h2');
+            header.className = 'accordion-header';
+            header.id = `heading${idx}`;
+            
+            const button = document.createElement('button');
+            button.className = 'accordion-button collapsed';
+            button.type = 'button';
+            button.setAttribute('data-bs-toggle', 'collapse');
+            button.setAttribute('data-bs-target', `#collapse${idx}`);
+            button.setAttribute('aria-expanded', 'false');
+            button.setAttribute('aria-controls', `collapse${idx}`);
+            button.innerHTML = `<span class="section-icon" style="margin-right:10px;display:inline-block;transition:transform 0.3s;">▶️</span> ${h4.innerHTML}`;
+            
+            header.appendChild(button);
+            item.appendChild(header);
+            
+            const collapse = document.createElement('div');
+            collapse.id = `collapse${idx}`;
+            collapse.className = 'accordion-collapse collapse';
+            collapse.setAttribute('aria-labelledby', `heading${idx}`);
+            collapse.setAttribute('data-bs-parent', '');
+            
+            const body = document.createElement('div');
+            body.className = 'accordion-body';
+            content.forEach(el => body.appendChild(el));
+            collapse.appendChild(body);
+            item.appendChild(collapse);
+            accordion.appendChild(item);
+            
+            // Substituir conteúdo da section
+            section.innerHTML = '';
+            section.appendChild(accordion);
+        });
+
+        // Fade-in animado nas seções
+        const fadeSections = document.querySelectorAll('.fade-in-section');
+        const onScroll = () => {
+            fadeSections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 50) {
+                    sec.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+
+        // Botão voltar ao topo
+        const btn = document.getElementById('back-to-top');
+        btn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 200) btn.style.display = 'block';
+            else btn.style.display = 'none';
+        });
+    });
+    </script>
+</body>
+</html>
